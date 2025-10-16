@@ -24,7 +24,7 @@
   * 검증(Validator)
 ---
 
-![img_4.png](img_4.png)
+<img width="641" height="391" alt="image" src="https://github.com/user-attachments/assets/2af730d7-a276-4313-8e6c-e36ed5f5044d" />
 
 ---
 ## 🔖 Model

@@ -10,6 +10,6 @@ public class Calculator {
             Validator.validate(n);
             sum += n;
         }
-        return sum; 
+        return sum;
     }
 }

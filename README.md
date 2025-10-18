@@ -35,19 +35,19 @@
 
 ### 2. Calculator
 * `SplitHandler`에서 전달받은 숫자를 합한다.
-  * 결과값을 `CalculatorController`에 반환한다.
+  * 결과값은 `CalculatorController`에 반환한다.
+* 잘못된 값을 입력한 경우 예외처리해야 한다.(문자열을 숫자로 변환하기 전)
+  * 입력값이 비어있는 경우 `IllegalArgumentException`
+  * 입력값에 숫자가 아닌 문자가 있는 경우 `IllegalArgumentException`
 
 ### 3. Validator
-* 잘못된 값을 입력한 경우 예외처리해야 한다. 
-  * 커스텀 문자가 잘못 구분된 경우 `IllegalArgumentException`
-  * 숫자에 음수가 있는 경우 `IllegalArgumentException`
-  * 숫자에 문자가 있는 경우(SplitHandler를 제대로 수행하지 않은 경우) `IllegalArgumentException`
+* 잘못된 값을 입력한 경우 예외처리해야 한다.(숫자로 변환 완료한 후)
+  * 추출한 입력값에 음수가 있는 경우 `IllegalArgumentException`
 ---
 ## 🖥️ View
 ### InputView
 * 입력을 받는다.
   * `덧셈할 문자열을 입력해 주세요.`
-* 입력 받은 문자열을 `CalculatorController`에 전달한다.
 
 ### OutputView
 * 출력을 한다. 
@@ -55,8 +55,8 @@
 ---
 ## ⚙️ Contrller
 ### CalculatorController
-* `InputView`에서 입력받은 문자열을 전달받는다. 
-* 해당 문자열을 `SplitHandler`로 전달한다. 
-  * 구분자 구분하는 과정 수행 
-* `Validator`를 거쳐 `Calculator`에서 연산을 수행한다.
-* Calculator에서 반환된 결과값을 `OuputView`에 전달한다.
+* `InputView`를 호출한다. 
+* 입력받은 문자열을 `Calculator`로 전달한다. 
+  * `Calculator`에서 `SplitHandler`를 통해 문자열에서 숫자를 추출한다. 
+  * 추출한 숫자를 `Validator`를 거쳐 `Calculator`에서 연산을 수행한다.
+* `OutputView`를 호출한다. 
